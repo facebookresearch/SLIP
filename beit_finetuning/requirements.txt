@@ -1,0 +1,10 @@
+Pillow
+blobfile
+mypy
+numpy
+pytest
+requests
+einops
+tensorboardX
+deepspeed==0.4.0
+scipy
