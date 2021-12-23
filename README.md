@@ -2,13 +2,178 @@
 
 <img src="slip.png" alt="SLIP framework" width="400"/>
 
-**What you can find in this repo**:
+## What you can find in this repo:
 - Pre-trained models (with ViT-Small, Base, Large) and code to reproduce results from our paper: **[SLIP: Self-supervision meets Language-Image Pre-training](https://arxiv.org).** *[Norman Mu](normanmu.com), [Alexander Kirillov](https://alexander-kirillov.github.io/), [David Wagner](http://people.eecs.berkeley.edu/~daw/) and [Saining Xi](sainingxie.com)e*, arXiv 2021
 
      **Note: Paper will be released at 20:00 ET Dec 23 (Today) on arXiv.**
 
 - An improved CLIP baseline (31.3% → 34.6% ImageNet 0-shot w/ Modified ResNet-50) on YFCC15M dataset.
 - Zero-shot transfer and linear classification evaluation scripts on **26** downstream datasets.
+
+## Results and Pre-trained Models
+The following models are pre-trained on YFCC15M and evaluated on ImageNet-1K (ILSVRC2012).
+
+### ViT-Small (MoCo v3 version w/ 12 vs. 6 heads)
+<table><tbody>
+<!-- START TABLE -->
+<!-- TABLE HEADER -->
+<th valign="center">Method</th>
+<th valign="center">Epochs</th>
+<th valign="center">0-shot</th>
+<th valign="center">Linear</th>
+<th valign="center">Finetuned</th>
+<th valign="center">Weights</th>
+
+<!-- TABLE BODY -->
+<tr>
+<td align="center">CLIP</td>
+<td align="center">25</td>
+<td align="center">32.7</td>
+<td align="center">59.3</td>
+<td align="center">78.2</td>
+<td align="center"><a href="https://dl.fbaipublicfiles.com/slip/clip_small_25ep.pt">url</a></td>
+</tr>
+<tr>
+<td align="center">SimCLR</td>
+<td align="center">25</td>
+<td align="center">-</td>
+<td align="center">58.1</td>
+<td align="center">79.9</td>
+<td align="center"><a href="https://dl.fbaipublicfiles.com/slip/simclr_small_25ep.pt">url</a></td>
+</tr>
+<tr>
+<td align="center">SLIP</td>
+<td align="center">25</td>
+<td align="center">38.3</td>
+<td align="center">66.4</td>
+<td align="center">80.3</td>
+<td align="center"><a href="https://dl.fbaipublicfiles.com/slip/slip_small_25ep.pt">url</a></td>
+</tr>
+<tr>
+<td align="center">SLIP</td>
+<td align="center">50</td>
+<td align="center">39.3</td>
+<td align="center">67.6</td>
+<td align="center">80/7</td>
+<td align="center"><a href="https://dl.fbaipublicfiles.com/slip/slip_small_50ep.pt">url</a></td>
+</tr>
+<tr>
+<td align="center">SLIP</td>
+<td align="center">100</td>
+<td align="center">39.5</td>
+<td align="center">68.3</td>
+<td align="center">80.7</td>
+<td align="center"><a href="https://dl.fbaipublicfiles.com/slip/slip_small_100ep.pt">url</a></td>
+</tr>
+</tbody></table>
+
+### ViT-Base
+<table><tbody>
+<!-- START TABLE -->
+<!-- TABLE HEADER -->
+<th valign="center">Method</th>
+<th valign="center">Epochs</th>
+<th valign="center">0-shot</th>
+<th valign="center">Linear</th>
+<th valign="center">Finetuned</th>
+<th valign="center">Weights</th>
+
+<!-- TABLE BODY -->
+<tr>
+<td align="center">CLIP</td>
+<td align="center">25</td>
+<td align="center">37.6</td>
+<td align="center">66.5</td>
+<td align="center">80.5</td>
+<td align="center"><a href="https://dl.fbaipublicfiles.com/slip/clip_base_25ep.pt">url</a></td>
+</tr>
+<tr>
+<td align="center">SimCLR</td>
+<td align="center">25</td>
+<td align="center">-</td>
+<td align="center">64.0</td>
+<td align="center">82.5</td>
+<td align="center"><a href="https://dl.fbaipublicfiles.com/slip/simclr_base_25ep.pt">url</a></td>
+</tr>
+<tr>
+<td align="center">SLIP</td>
+<td align="center">25</td>
+<td align="center">42.8</td>
+<td align="center">72.1</td>
+<td align="center">82.6</td>
+<td align="center"><a href="https://dl.fbaipublicfiles.com/slip/slip_base_25ep.pt">url</a></td>
+</tr>
+<tr>
+<td align="center">SLIP</td>
+<td align="center">50</td>
+<td align="center">44.1</td>
+<td align="center">73.0</td>
+<td align="center">82.9</td>
+<td align="center"><a href="https://dl.fbaipublicfiles.com/slip/slip_base_50ep.pt">url</a></td>
+</tr>
+<tr>
+<td align="center">SLIP</td>
+<td align="center">100</td>
+<td align="center">45.0</td>
+<td align="center">73.6</td>
+<td align="center">83.4</td>
+<td align="center"><a href="https://dl.fbaipublicfiles.com/slip/slip_base_100ep.pt">url</a></td>
+</tr>
+</tbody></table>
+
+### ViT-Large
+<table><tbody>
+<!-- START TABLE -->
+<!-- TABLE HEADER -->
+<th valign="center">Method</th>
+<th valign="center">Epochs</th>
+<th valign="center">0-shot</th>
+<th valign="center">Linear</th>
+<th valign="center">Finetuned</th>
+<th valign="center">Weights</th>
+
+<!-- TABLE BODY -->
+<tr>
+<td align="center">CLIP</td>
+<td align="center">25</td>
+<td align="center">40.4</td>
+<td align="center">70.5</td>
+<td align="center">81.0</td>
+<td align="center"><a href="https://dl.fbaipublicfiles.com/slip/clip_large_25ep.pt">url</a></td>
+</tr>
+<tr>
+<td align="center">SimCLR</td>
+<td align="center">25</td>
+<td align="center">-</td>
+<td align="center">66.7</td>
+<td align="center">84.0</td>
+<td align="center"><a href="https://dl.fbaipublicfiles.com/slip/simclr_large_25ep.pt">url</a></td>
+</tr>
+<tr>
+<td align="center">SLIP</td>
+<td align="center">25</td>
+<td align="center">46.2</td>
+<td align="center">76.0</td>
+<td align="center">84.2</td>
+<td align="center"><a href="https://dl.fbaipublicfiles.com/slip/slip_large_25ep.pt">url</a></td>
+</tr>
+<tr>
+<td align="center">SLIP</td>
+<td align="center">50</td>
+<td align="center">47.4</td>
+<td align="center">75.8</td>
+<td align="center">84.7</td>
+<td align="center"><a href="https://dl.fbaipublicfiles.com/slip/slip_large_50ep.pt">url</a></td>
+</tr>
+<tr>
+<td align="center">SLIP</td>
+<td align="center">100</td>
+<td align="center">47.9</td>
+<td align="center">75.1</td>
+<td align="center">84.8</td>
+<td align="center"><a href="https://dl.fbaipublicfiles.com/slip/slip_large_100ep.pt">url</a></td>
+</tr>
+</tbody></table>
 
 ## 1. Setup
 Install [PyTorch](https://pytorch.org) and [timm](https://github.com/rwightman/pytorch-image-models). 
@@ -257,170 +422,6 @@ python run_with_submitit_finetune.py \
     --output_dir /path/to/output_dir --finetune /path/to/checkpoint.pt
 ```
 
-## Results and Pre-trained Models
-The following models are pre-trained on YFCC15M and evaluated on ImageNet-1K (ILSVRC2012).
-
-### ViT-Small (MoCo v3 version w/ 12 vs. 6 heads)
-<table><tbody>
-<!-- START TABLE -->
-<!-- TABLE HEADER -->
-<th valign="center">Method</th>
-<th valign="center">Epochs</th>
-<th valign="center">0-shot</th>
-<th valign="center">Linear</th>
-<th valign="center">Finetuned</th>
-<th valign="center">Weights</th>
-
-<!-- TABLE BODY -->
-<tr>
-<td align="center">CLIP</td>
-<td align="center">25</td>
-<td align="center">32.7</td>
-<td align="center">59.3</td>
-<td align="center">78.2</td>
-<td align="center"><a href="https://dl.fbaipublicfiles.com/slip/clip_small_25ep.pt">url</a></td>
-</tr>
-<tr>
-<td align="center">SimCLR</td>
-<td align="center">25</td>
-<td align="center">-</td>
-<td align="center">58.1</td>
-<td align="center">79.9</td>
-<td align="center"><a href="https://dl.fbaipublicfiles.com/slip/simclr_small_25ep.pt">url</a></td>
-</tr>
-<tr>
-<td align="center">SLIP</td>
-<td align="center">25</td>
-<td align="center">38.3</td>
-<td align="center">66.4</td>
-<td align="center">80.3</td>
-<td align="center"><a href="https://dl.fbaipublicfiles.com/slip/slip_small_25ep.pt">url</a></td>
-</tr>
-<tr>
-<td align="center">SLIP</td>
-<td align="center">50</td>
-<td align="center">39.3</td>
-<td align="center">67.6</td>
-<td align="center">80/7</td>
-<td align="center"><a href="https://dl.fbaipublicfiles.com/slip/slip_small_50ep.pt">url</a></td>
-</tr>
-<tr>
-<td align="center">SLIP</td>
-<td align="center">100</td>
-<td align="center">39.5</td>
-<td align="center">68.3</td>
-<td align="center">80.7</td>
-<td align="center"><a href="https://dl.fbaipublicfiles.com/slip/slip_small_100ep.pt">url</a></td>
-</tr>
-</tbody></table>
-
-### ViT-Base
-<table><tbody>
-<!-- START TABLE -->
-<!-- TABLE HEADER -->
-<th valign="center">Method</th>
-<th valign="center">Epochs</th>
-<th valign="center">0-shot</th>
-<th valign="center">Linear</th>
-<th valign="center">Finetuned</th>
-<th valign="center">Weights</th>
-
-<!-- TABLE BODY -->
-<tr>
-<td align="center">CLIP</td>
-<td align="center">25</td>
-<td align="center">37.6</td>
-<td align="center">66.5</td>
-<td align="center">80.5</td>
-<td align="center"><a href="https://dl.fbaipublicfiles.com/slip/clip_base_25ep.pt">url</a></td>
-</tr>
-<tr>
-<td align="center">SimCLR</td>
-<td align="center">25</td>
-<td align="center">-</td>
-<td align="center">64.0</td>
-<td align="center">82.5</td>
-<td align="center"><a href="https://dl.fbaipublicfiles.com/slip/simclr_base_25ep.pt">url</a></td>
-</tr>
-<tr>
-<td align="center">SLIP</td>
-<td align="center">25</td>
-<td align="center">42.8</td>
-<td align="center">72.1</td>
-<td align="center">82.6</td>
-<td align="center"><a href="https://dl.fbaipublicfiles.com/slip/slip_base_25ep.pt">url</a></td>
-</tr>
-<tr>
-<td align="center">SLIP</td>
-<td align="center">50</td>
-<td align="center">44.1</td>
-<td align="center">73.0</td>
-<td align="center">82.9</td>
-<td align="center"><a href="https://dl.fbaipublicfiles.com/slip/slip_base_50ep.pt">url</a></td>
-</tr>
-<tr>
-<td align="center">SLIP</td>
-<td align="center">100</td>
-<td align="center">45.0</td>
-<td align="center">73.6</td>
-<td align="center">83.4</td>
-<td align="center"><a href="https://dl.fbaipublicfiles.com/slip/slip_base_100ep.pt">url</a></td>
-</tr>
-</tbody></table>
-
-### ViT-Large
-<table><tbody>
-<!-- START TABLE -->
-<!-- TABLE HEADER -->
-<th valign="center">Method</th>
-<th valign="center">Epochs</th>
-<th valign="center">0-shot</th>
-<th valign="center">Linear</th>
-<th valign="center">Finetuned</th>
-<th valign="center">Weights</th>
-
-<!-- TABLE BODY -->
-<tr>
-<td align="center">CLIP</td>
-<td align="center">25</td>
-<td align="center">40.4</td>
-<td align="center">70.5</td>
-<td align="center">81.0</td>
-<td align="center"><a href="https://dl.fbaipublicfiles.com/slip/clip_large_25ep.pt">url</a></td>
-</tr>
-<tr>
-<td align="center">SimCLR</td>
-<td align="center">25</td>
-<td align="center">-</td>
-<td align="center">66.7</td>
-<td align="center">84.0</td>
-<td align="center"><a href="https://dl.fbaipublicfiles.com/slip/simclr_large_25ep.pt">url</a></td>
-</tr>
-<tr>
-<td align="center">SLIP</td>
-<td align="center">25</td>
-<td align="center">46.2</td>
-<td align="center">76.0</td>
-<td align="center">84.2</td>
-<td align="center"><a href="https://dl.fbaipublicfiles.com/slip/slip_large_25ep.pt">url</a></td>
-</tr>
-<tr>
-<td align="center">SLIP</td>
-<td align="center">50</td>
-<td align="center">47.4</td>
-<td align="center">75.8</td>
-<td align="center">84.7</td>
-<td align="center"><a href="https://dl.fbaipublicfiles.com/slip/slip_large_50ep.pt">url</a></td>
-</tr>
-<tr>
-<td align="center">SLIP</td>
-<td align="center">100</td>
-<td align="center">47.9</td>
-<td align="center">75.1</td>
-<td align="center">84.8</td>
-<td align="center"><a href="https://dl.fbaipublicfiles.com/slip/slip_large_100ep.pt">url</a></td>
-</tr>
-</tbody></table>
 
 ### License
 
