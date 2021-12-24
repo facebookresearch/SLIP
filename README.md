@@ -52,7 +52,7 @@ The following models are pre-trained on YFCC15M and evaluated on ImageNet-1K (IL
 <td align="center">50</td>
 <td align="center">39.3</td>
 <td align="center">67.6</td>
-<td align="center">80/7</td>
+<td align="center">80.7</td>
 <td align="center"><a href="https://dl.fbaipublicfiles.com/slip/slip_small_50ep.pt">url</a></td>
 </tr>
 <tr>
