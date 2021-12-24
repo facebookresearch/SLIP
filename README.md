@@ -1,9 +1,9 @@
-# [SLIP: Self-supervision meets Language-Image Pre-training](https://arxiv.org)
+# [SLIP: Self-supervision meets Language-Image Pre-training](https://arxiv.org/abs/2112.12750)
 
 <img src="slip.png" alt="SLIP framework" width="400"/>
 
 ## What you can find in this repo:
-- Pre-trained models (with ViT-Small, Base, Large) and code to reproduce results from our paper: **[SLIP: Self-supervision meets Language-Image Pre-training](https://arxiv.org).** *[Norman Mu](normanmu.com), [Alexander Kirillov](https://alexander-kirillov.github.io/), [David Wagner](http://people.eecs.berkeley.edu/~daw/) and [Saining Xi](sainingxie.com)e*, arXiv 2021
+- Pre-trained models (with ViT-Small, Base, Large) and code to reproduce results from our paper: **[SLIP: Self-supervision meets Language-Image Pre-training](https://arxiv.org/abs/2112.12750).** *[Norman Mu](normanmu.com), [Alexander Kirillov](https://alexander-kirillov.github.io/), [David Wagner](http://people.eecs.berkeley.edu/~daw/) and [Saining Xi](sainingxie.com)e*, arXiv 2021
 
      **Note: Paper will be released at 20:00 ET Dec 23 (Today) on arXiv.**
 
@@ -432,7 +432,7 @@ This project is under the CC-BY-NC 4.0 license. See [LICENSE](LICENSE) for detai
 @Article{mu2021slip,
   author  = {Norman Mu and Alexander Kirillov and David Wagner and Saining Xie},
   title   = {SLIP: Self-supervision meets Language-Image Pre-training},
-  journal = {arXiv preprint arXiv:2112.????},
+  journal = {arXiv preprint arXiv:2112.12750},
   year    = {2021},
 }
 ```
