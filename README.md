@@ -423,7 +423,7 @@ python run_with_submitit_finetune.py \
 
 ### License
 
-This project is under the CC-BY-NC 4.0 license. See [LICENSE](LICENSE) for details.
+This project is under the MIT license. See [LICENSE](LICENSE) for details.
 
 ### Citation
 ```
