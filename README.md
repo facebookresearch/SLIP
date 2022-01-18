@@ -8,6 +8,10 @@
 - An improved CLIP baseline (31.3% → 34.6% ImageNet 0-shot w/ Modified ResNet-50) on YFCC15M dataset.
 - Zero-shot transfer and linear classification evaluation scripts on **26** downstream datasets.
 
+## Updates:
+
+Jan 17 2022: Released CC3M/CC12M CLIP/SLIP ViT-B checkpoints
+
 ## Results and Pre-trained Models
 The following models are pre-trained on YFCC15M and evaluated on ImageNet-1K (ILSVRC2012).
 
@@ -171,6 +175,63 @@ The following models are pre-trained on YFCC15M and evaluated on ImageNet-1K (IL
 <td align="center">84.8</td>
 <td align="center"><a href="https://dl.fbaipublicfiles.com/slip/slip_large_100ep.pt">url</a></td>
 </tr>
+</tbody></table>
+
+### Additional Datasets and Models
+<table><tbody>
+<!-- START TABLE -->
+<!-- TABLE HEADER -->
+<th valign="center">Dataset</th>
+<th valign="center">Method</th>
+<th valign="center">Model</th>
+<th valign="center">Epochs</th>
+<th valign="center">0-shot</th>
+<th valign="center">Linear</th>
+<th valign="center">Finetuned</th>
+<th valign="center">Weights</th>
+
+<!-- TABLE BODY -->
+<tr>
+<td align="center">CC3M</td>
+<td align="center">CLIP</td>
+<td align="center">ViT-B</td>
+<td align="center">25</td>
+<td align="center">17.1</td>
+<td align="center">53.3</td>
+<td align="center">79.5</td>
+<td align="center"><a href="https://dl.fbaipublicfiles.com/slip/clip_base_cc3m_25ep.pt">url</a></td>
+</tr>
+<tr>
+<td align="center">CC3M</td>
+<td align="center">SLIP</td>
+<td align="center">ViT-B</td>
+<td align="center">25</td>
+<td align="center">23.0</td>
+<td align="center">65.4</td>
+<td align="center">81.4</td>
+<td align="center"><a href="https://dl.fbaipublicfiles.com/slip/slip_base_cc3m_25ep.pt">url</a></td>
+</tr>
+<tr>
+<td align="center">CC12M</td>
+<td align="center">CLIP</td>
+<td align="center">ViT-B</td>
+<td align="center">25</td>
+<td align="center">36.5</td>
+<td align="center">69.0</td>
+<td align="center">82.1</td>
+<td align="center"><a href="https://dl.fbaipublicfiles.com/slip/clip_base_cc12m_25ep.pt">url</a></td>
+</tr>
+<tr>
+<td align="center">CC12M</td>
+<td align="center">SLIP</td>
+<td align="center">ViT-B</td>
+<td align="center">25</td>
+<td align="center">40.7</td>
+<td align="center">73.7</td>
+<td align="center">83.1</td>
+<td align="center"><a href="https://dl.fbaipublicfiles.com/slip/slip_base_cc12m_25ep.pt">url</a></td>
+</tr>
+
 </tbody></table>
 
 ## 1. Setup
