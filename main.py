@@ -319,7 +319,7 @@ def train(train_loader, model, criterion, optimizer, scaler, epoch, lr_schedule,
             logit_scale = utils.get_model(model).logit_scale.exp().item()
 
         for k in loss_dict:
-            metrics[k].update(loss_dict[k], args.batch_size)
+            metrics[k].update(loss_dict[k].item(), args.batch_size)
 
         # measure elapsed time
         batch_time.update(time.time() - end)
