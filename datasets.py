@@ -56,6 +56,10 @@ class ImageCaptionDatasetBase(torch.utils.data.Dataset):
             self.samples = [(k, v) for k, v in samples.items()]
         elif self.dataset == 'cc12m' or self.dataset == 'cc3m':
             self.samples = np.load(metadata, allow_pickle=True)
+        elif self.dataset == 'redcaps':
+            with open(metadata) as f:
+                annotations = json.load(f)
+            self.samples = [(ann['image_id'], ann['subreddit'], ann['caption']) for ann in annotations]
 
     def get_raw_item(self, i):
         if self.dataset == 'yfcc15m':
@@ -79,6 +83,10 @@ class ImageCaptionDatasetBase(torch.utils.data.Dataset):
             path = os.path.join(self.root, filename)
             img = pil_loader(path)
             caption = np.random.choice(captions)
+        elif self.dataset == 'redcaps':
+            image_id, subreddit, caption = self.samples[i]
+            path = os.path.join(self.root, subreddit, f"{image_id}.jpg")
+            img = pil_loader(path)
 
         return img, caption
 

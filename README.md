@@ -1,6 +1,7 @@
 # [SLIP: Self-supervision meets Language-Image Pre-training](https://arxiv.org/abs/2112.12750)
 
-<img src="slip.png" alt="SLIP framework" width="400"/>
+<p align="center"><img src="slip.png" alt="SLIP framework" width="400"/></p>
+
 
 ## What you can find in this repo:
 - Pre-trained models (with ViT-Small, Base, Large) and code to reproduce results from our paper: **[SLIP: Self-supervision meets Language-Image Pre-training](https://arxiv.org/abs/2112.12750).** *[Norman Mu](https://normanmu.com), [Alexander Kirillov](https://alexander-kirillov.github.io/), [David Wagner](http://people.eecs.berkeley.edu/~daw/) and [Saining Xie](https://sainingxie.com)*, arXiv 2021
@@ -9,6 +10,8 @@
 - Zero-shot transfer and linear classification evaluation scripts on **26** downstream datasets.
 
 ## Updates:
+
+Jan 18 2022: Added support for training on RedCaps
 
 Jan 17 2022: Released CC3M/CC12M CLIP/SLIP ViT-B checkpoints
 
@@ -195,41 +198,41 @@ The following models are pre-trained on YFCC15M and evaluated on ImageNet-1K (IL
 <td align="center">CC3M</td>
 <td align="center">CLIP</td>
 <td align="center">ViT-B</td>
-<td align="center">25</td>
+<td align="center">40</td>
 <td align="center">17.1</td>
 <td align="center">53.3</td>
 <td align="center">79.5</td>
-<td align="center"><a href="https://dl.fbaipublicfiles.com/slip/clip_base_cc3m_25ep.pt">url</a></td>
+<td align="center"><a href="https://dl.fbaipublicfiles.com/slip/clip_base_cc3m_40ep.pt">url</a></td>
 </tr>
 <tr>
 <td align="center">CC3M</td>
 <td align="center">SLIP</td>
 <td align="center">ViT-B</td>
-<td align="center">25</td>
+<td align="center">40</td>
 <td align="center">23.0</td>
 <td align="center">65.4</td>
 <td align="center">81.4</td>
-<td align="center"><a href="https://dl.fbaipublicfiles.com/slip/slip_base_cc3m_25ep.pt">url</a></td>
+<td align="center"><a href="https://dl.fbaipublicfiles.com/slip/slip_base_cc3m_40ep.pt">url</a></td>
 </tr>
 <tr>
 <td align="center">CC12M</td>
 <td align="center">CLIP</td>
 <td align="center">ViT-B</td>
-<td align="center">25</td>
+<td align="center">35</td>
 <td align="center">36.5</td>
 <td align="center">69.0</td>
 <td align="center">82.1</td>
-<td align="center"><a href="https://dl.fbaipublicfiles.com/slip/clip_base_cc12m_25ep.pt">url</a></td>
+<td align="center"><a href="https://dl.fbaipublicfiles.com/slip/clip_base_cc12m_35ep.pt">url</a></td>
 </tr>
 <tr>
 <td align="center">CC12M</td>
 <td align="center">SLIP</td>
 <td align="center">ViT-B</td>
-<td align="center">25</td>
+<td align="center">35</td>
 <td align="center">40.7</td>
 <td align="center">73.7</td>
 <td align="center">83.1</td>
-<td align="center"><a href="https://dl.fbaipublicfiles.com/slip/slip_base_cc12m_25ep.pt">url</a></td>
+<td align="center"><a href="https://dl.fbaipublicfiles.com/slip/slip_base_cc12m_35ep.pt">url</a></td>
 </tr>
 
 </tbody></table>
@@ -293,6 +296,18 @@ For CC12M our dataloader expects `cc12m.npy` to contain a NumPy array of dicts i
 ```
 
 When pre-training on CC3M set `--dataset cc3m --root /path/to/cc3m --metadata /path/to/cc3m.npy`, and whe pre-training on CC12M set `--dataset cc12m --root /path/to/cc12m --metadata /path/to/cc12m.npy`.
+
+### 1.4. RedCaps Setup
+[RedCaps](https://redcaps.xyz) is published as a list of JSON annotation files containing image urls and raw/processed captions.
+Images can be downloaded from these annotations with a helpful [downloader tool](https://github.com/redcaps-dataset/redcaps-downloader).
+Then merge all per-subreddit annotations into a single file with the [combine_captions.py](redcaps/combine_captions.py) script:
+
+```
+python redcaps/combine_captions.py --input /path/to/redcaps/annotations --output /path/to/redcaps_v1.json
+```
+
+To pre-train on RedCaps set `--dataset redcaps --root /path/to/redcaps --metadata /path/to/redcaps_v1.json`.
+
 
 ### 1.4. Downstream Dataset Setup
 Zero-shot (in [main.py](main.py) and [eval_zeroshot.py](eval_zeroshot.py)) and linear (in [main_linear.py](main_linear.py)) evaluations read dataset paths from [dataset_catalog.json](dataset_catalog.json).

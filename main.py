@@ -33,7 +33,7 @@ import utils
 def get_args_parser():
     parser = argparse.ArgumentParser(description='SLIP training and evaluation', add_help=False)
     # Data
-    parser.add_argument('--dataset', default='yfcc15m', type=str, choices=['yfcc15m', 'cc3m', 'cc12m', 'coco'])
+    parser.add_argument('--dataset', default='yfcc15m', type=str, choices=['yfcc15m', 'cc3m', 'cc12m', 'coco', 'redcaps'])
     parser.add_argument('--root', default='', type=str,
                         help='path to dataset root')
     parser.add_argument('--metadata', default='yfcc15m.pkl', type=str,
