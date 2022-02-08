@@ -278,18 +278,18 @@ Download images and collect the captions of all available images (many will be m
 
 For CC3M our dataloader expects `cc3m.npy` to contain a NumPy array of dicts in the following format:
 
-```
+```jsonc
 {
-  'image_id': 1510438788,  # local file path relative to root
+  'image_id': 1510438788,  // local file path relative to root
   'captions': ['large field with pink tulips on a clear sunny summer day with a blue sky']
 }
 ```
 
 For CC12M our dataloader expects `cc12m.npy` to contain a NumPy array of dicts in the following format:
 
-```
+```jsonc
 {
-  'image_name': '0.jpg',  # local file path relative to root
+  'image_name': '0.jpg',  // local file path relative to root
   'image_id': 0,
   'captions': ['Metal Design Within Reach Ivory Slipper Chairs - a Pair For Sale - Image 7 of 10']
 }
@@ -302,7 +302,7 @@ When pre-training on CC3M set `--dataset cc3m --root /path/to/cc3m --metadata /p
 Images can be downloaded from these annotations with a helpful [downloader tool](https://github.com/redcaps-dataset/redcaps-downloader).
 Then merge all per-subreddit annotations into a single file with the [combine_captions.py](redcaps/combine_captions.py) script:
 
-```
+```bash
 python redcaps/combine_captions.py --input /path/to/redcaps/annotations --output /path/to/redcaps_v1.json
 ```
 
@@ -328,7 +328,7 @@ We train most of our models on 8x 8-gpu nodes, but training with fewer gpus is p
 Note that gradient accumulation will increase the variance of minibatch statistics and alter the training dynamics of batchnorm, which is used in SLIP and SimCLR.
 
 ### SLIP ViT-Base with 8-nodes (batch size 4096)
-```
+```bash
 python run_with_submitit.py \
   --root /path/to/yfcc100m \
   --model SLIP_VITB16 \
@@ -336,7 +336,7 @@ python run_with_submitit.py \
 ```
 
 ### CLIP ViT-Base with 8-nodes (batch size 4096)
-```
+```bash
 python run_with_submitit.py \
   --root /path/to/yfcc100m \
   --model CLIP_VITB16 \
@@ -344,7 +344,7 @@ python run_with_submitit.py \
 ```
 
 ### SimCLR ViT-Base with 8-nodes (batch size 4096)
-```
+```bash
 python run_with_submitit.py \
   --root /path/to/yfcc100m \
   --model SIMCLR_VITB16 \
@@ -389,7 +389,7 @@ Then set all dataset paths in [dataset_catalog.json](dataset_catalog.json).
 
 Evaluate zero-shot transfer to various classification benchmarks with [eval_zeroshot.py](eval_zeroshot.py), which reads labels and templates from [labels.json](labels.json)/[templates.json](templates.json) and dataset paths from [dataset_catalog.json](dataset_catalog.json). Inference is performed with a single gpu. By default, the script iterates through all datasets in [dataset_catalog.json](dataset_catalog.json) and evaluates zero-shot in order. Evaluation can be limited to a subset of datasets by replacing `for d in datasets:` with `for d in ['imagenet']:` on line 78.
 
-```
+```bash
 python eval_zeroshot.py --resume /path/to/checkpoint.pt
 ```
 
@@ -401,7 +401,7 @@ As with pre-training, our workflow uses [submitit](https://github.com/facebookin
 For local training with [torchrun](https://pytorch.org/docs/stable/elastic/run.html), replace `python run_with_submitit_linear.py` with `torchrun --nproc_per_node=8 main_linear.py`. 
 This script reads the ImageNet dataset path from the dataset catalog ([dataset_catalog.json](dataset_catalog.json)), which must be set properly before training.
 
-```
+```bash
 python run_with_submitit_linear.py  \
   --arch vit_base_patch16_224 --dataset imagenet \
   --pretrained /path/to/checkpoint.pt
@@ -418,7 +418,7 @@ The fintuning code has been modified and tested to work with these versions.
 ### 5.1. Setup
 To evaluate end-to-end finetuning on ImageNet, first clone the BeiT repo and checkout the correct commit:
 
-```
+```bash
 git clone git@github.com:microsoft/unilm.git
 cd unilm/beit
 git checkout f8f3df8
@@ -426,14 +426,14 @@ git checkout f8f3df8
 
 Now copy over modified files from our [beit_finetuning](beit_finetuning) directory:
 
-```
+```bash
 cp beit_finetuning/* unilm/beit
 cd unilm/beit
 ```
 
 Install pip dependencies and Nvidia Apex:
 
-```
+```bash
 pip install -r requirements.txt
 git clone https://github.com/NVIDIA/apex
 cd apex
@@ -450,7 +450,7 @@ Note the use of the `--finetune` argument instead of `--resume`.
 
 ### ViT-Small (MoCo v3 version w/ 12 vs. 6 heads)
 
-```
+```bash
 python run_with_submitit_finetune.py \
     --batch_size 128 --enable_deepspeed \
     --epochs 100 --warmup_epochs 20 \
@@ -466,7 +466,7 @@ python run_with_submitit_finetune.py \
 
 ### ViT-Base
 
-```
+```bash
 python run_with_submitit_finetune.py \
     --batch_size 128 --enable_deepspeed \
     --epochs 100 --warmup_epochs 20 \
@@ -482,7 +482,7 @@ python run_with_submitit_finetune.py \
 
 ### ViT-Large
 
-```
+```bash
 python run_with_submitit_finetune.py \
     --batch_size 128 --enable_deepspeed \
     --epochs 50 --warmup_epochs 5 \
@@ -502,7 +502,7 @@ python run_with_submitit_finetune.py \
 This project is under the MIT license. See [LICENSE](LICENSE) for details.
 
 ### Citation
-```
+```bibtex
 @Article{mu2021slip,
   author  = {Norman Mu and Alexander Kirillov and David Wagner and Saining Xie},
   title   = {SLIP: Self-supervision meets Language-Image Pre-training},
