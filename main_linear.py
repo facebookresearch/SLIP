@@ -246,7 +246,7 @@ def main(args):
                 'best_acc1': best_acc1,
                 'optimizer' : optimizer.state_dict(),
             }, is_best, args.output_dir)
-            if epoch == args.start_epoch:
+            if epoch + 1 == args.start_epoch + args.print_freq:
                 sanity_check(model.state_dict(), args.pretrained, linear_keyword, visual_keyword)
 
         log_stats = {**{f'train_{k}': v for k, v in train_stats.items()},
